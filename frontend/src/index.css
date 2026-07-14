@@ -1,0 +1,270 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --colors-canvas: #e9e8e6;
+  --colors-canvas-soft: #fafafa;
+  --colors-surface-card: #ffffff;
+  --colors-surface-strong: #f0efed;
+  
+  --colors-hairline: #e7e5e4;
+  --colors-hairline-soft: #f0efed;
+  --colors-hairline-strong: #d6d3d1;
+  
+  --colors-ink: #0c0a09;
+  --colors-body: #4e4e4e;
+  --colors-body-strong: #292524;
+  --colors-muted: #777169;
+  --colors-muted-soft: #a8a29e;
+  --colors-on-primary: #ffffff;
+  
+  /* Dynamic Pastel Orbs */
+  --colors-grad-mint: #a7e5d3;
+  --colors-grad-peach: #f4c5a8;
+  --colors-grad-lavender: #c8b8e0;
+  --colors-grad-sky: #a8c8e8;
+  --colors-grad-rose: #e8b8c4;
+  
+  /* Semantics */
+  --colors-success: #16a34a;
+  --colors-error: #dc2626;
+}
+
+body {
+  margin: 0;
+  background-color: var(--colors-canvas);
+  color: var(--colors-ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Base App Layout with atmospheric depth */
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Atmospheric Background Orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: all 1s ease-in-out;
+}
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--colors-grad-sky);
+  top: 15%;
+  right: 10%;
+}
+.orb-2 {
+  width: 450px;
+  height: 450px;
+  background: var(--colors-grad-peach);
+  bottom: 10%;
+  left: 5%;
+}
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: var(--colors-grad-mint);
+  top: 45%;
+  left: 40%;
+}
+
+/* Form Inputs & Elements inside Nodes */
+.node-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--colors-muted);
+  letter-spacing: 0.15px;
+}
+
+.node-input,
+.node-select {
+  width: 100%;
+  background-color: var(--colors-surface-card);
+  border: 1px solid var(--colors-hairline-strong);
+  border-radius: 8px; /* rounded.md */
+  color: var(--colors-ink);
+  font-size: 12px;
+  padding: 8px 12px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.15px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.node-input:focus,
+.node-select:focus {
+  border-color: var(--colors-ink);
+  box-shadow: 0 0 0 1px var(--colors-ink);
+}
+
+.node-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230c0a09' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+/* ReactFlow Custom Canvas Styling */
+.react-flow__background {
+  background-color: transparent !important;
+  z-index: 1;
+}
+
+.react-flow__pane {
+  z-index: 2;
+}
+
+.react-flow__edge-path,
+.react-flow__connection-path {
+  stroke: var(--colors-body) !important;
+  stroke-width: 2px !important;
+}
+
+.react-flow__arrowhead path {
+  fill: var(--colors-body) !important;
+  stroke: var(--colors-body) !important;
+  stroke-width: 1px !important;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dash 1.5s linear infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 10;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--colors-ink) !important;
+  stroke-width: 2.5px !important;
+}
+
+.react-flow__edge.selected .react-flow__arrowhead path {
+  fill: var(--colors-ink) !important;
+  stroke: var(--colors-ink) !important;
+}
+
+.react-flow__handle {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Controls & MiniMap Styling */
+.react-flow__controls {
+  background: var(--colors-surface-card) !important;
+  border: 1px solid var(--colors-hairline) !important;
+  border-radius: 9999px !important; /* rounded.pill */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden;
+  padding: 4px !important;
+  display: flex !important;
+  gap: 2px !important;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border: none !important;
+  fill: var(--colors-muted) !important;
+  color: var(--colors-muted) !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justifyContent: center !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--colors-surface-strong) !important;
+  fill: var(--colors-ink) !important;
+  color: var(--colors-ink) !important;
+}
+
+.react-flow__minimap {
+  background: var(--colors-surface-card) !important;
+  border: 1px solid var(--colors-hairline) !important;
+  border-radius: 16px !important; /* rounded.xl */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(12, 10, 9, 0.15) !important;
+  stroke: var(--colors-hairline-strong) !important;
+  stroke-width: 1.2px !important;
+}
+
+/* Draggable Nodes in Toolbar */
+.draggable-node {
+  background-color: var(--colors-surface-card) !important;
+  border: 1px solid var(--colors-hairline) !important;
+  box-shadow: none !important;
+  border-radius: 9999px !important; /* rounded.pill */
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.draggable-node:hover {
+  background-color: var(--colors-canvas) !important;
+  border-color: var(--colors-hairline-strong) !important;
+  transform: translateY(-1px);
+}
+
+.draggable-node:active {
+  transform: translateY(0);
+}
+
+/* Delete Node Button Hover */
+.delete-node-btn:hover {
+  color: var(--colors-error) !important;
+  background-color: rgba(220, 38, 38, 0.08) !important;
+}
+
+/* Custom Scrollbar for Textareas */
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: var(--colors-hairline-strong);
+  border-radius: 3px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--colors-muted);
+}
