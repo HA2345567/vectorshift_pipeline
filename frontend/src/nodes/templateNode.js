@@ -36,7 +36,7 @@ export const TemplateNode = ({ id, data, selected }) => {
         <label className="node-label">
           <span>Template</span>
           <textarea
-            value={template} 
+            value={template}
             onChange={handleTemplateChange}
             rows={2}
             className="node-input"

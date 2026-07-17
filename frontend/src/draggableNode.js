@@ -14,12 +14,12 @@ export const DraggableNode = ({ type, label, icon: Icon }) => {
       className={`draggable-node ${type}`}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = 'grab')}
-      style={{ 
-        cursor: 'grab', 
-        minWidth: '110px', 
+      style={{
+        cursor: 'grab',
+        minWidth: '110px',
         height: '38px',
-        display: 'flex', 
-        alignItems: 'center', 
+        display: 'flex',
+        alignItems: 'center',
         gap: '8px',
         padding: '0 16px',
         borderRadius: '9999px', /* rounded.pill */
@@ -29,7 +29,7 @@ export const DraggableNode = ({ type, label, icon: Icon }) => {
         transition: 'all 0.2s ease',
         userSelect: 'none',
         boxSizing: 'border-box'
-      }} 
+      }}
       draggable
     >
       {Icon && <Icon size={14} style={{ color: '#777169' }} className="node-icon" />}

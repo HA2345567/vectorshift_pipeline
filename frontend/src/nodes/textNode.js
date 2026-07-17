@@ -37,7 +37,7 @@ export const TextNode = ({ id, data, selected }) => {
   // Calculate dynamic dimensions
   const lines = currText.split('\n');
   const maxLineLength = Math.max(...lines.map(line => line.length), 15);
-  
+
   // Calculate dynamic width and height with boundary constraints
   const nodeWidth = Math.min(500, Math.max(220, maxLineLength * 7.5 + 32));
   const nodeHeight = Math.min(400, Math.max(90, lines.length * 19 + 75));
@@ -80,8 +80,8 @@ export const TextNode = ({ id, data, selected }) => {
         <span style={{ color: '#777169', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 600 }}>
           Text Input (use `{"{{var}}"}` to create inputs)
         </span>
-        <textarea 
-          value={currText} 
+        <textarea
+          value={currText}
           onChange={handleTextChange}
           style={{
             width: '100%',

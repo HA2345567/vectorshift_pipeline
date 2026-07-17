@@ -35,9 +35,9 @@ export const DelayNode = ({ id, data, selected }) => {
         </div>
         <label className="node-label">
           <span>Seconds</span>
-          <input 
-            type="number" 
-            value={delay} 
+          <input
+            type="number"
+            value={delay}
             onChange={handleDelayChange}
             min="0"
             step="0.5"

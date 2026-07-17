@@ -39,8 +39,8 @@ export const BaseNode = ({
         borderRadius: '16px', // rounded.xl
         background: '#ffffff', // Surface Card
         border: `1px solid ${selected ? '#0c0a09' : '#e7e5e4'}`, // Hairline / Ink
-        boxShadow: selected 
-          ? '0 8px 24px rgba(12, 10, 9, 0.08)' 
+        boxShadow: selected
+          ? '0 8px 24px rgba(12, 10, 9, 0.08)'
           : '0 4px 16px rgba(0, 0, 0, 0.02)',
         transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
         color: '#0c0a09', // Ink
@@ -62,10 +62,10 @@ export const BaseNode = ({
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {Icon && <Icon size={15} style={{ color: activeColor }} />}
-          <span style={{ 
-            fontFamily: "'EB Garamond', 'Times New Roman', serif", 
-            fontWeight: 500, 
-            fontSize: '15px', 
+          <span style={{
+            fontFamily: "'EB Garamond', 'Times New Roman', serif",
+            fontWeight: 500,
+            fontSize: '15px',
             letterSpacing: '-0.2px',
             color: '#0c0a09'
           }}>
@@ -105,7 +105,7 @@ export const BaseNode = ({
       {handles.map((handle, idx) => {
         const { type, position, id: handleId, style: handleStyle, label } = handle;
         const isLeft = position === Position.Left;
-        
+
         return (
           <div key={handleId || idx}>
             <Handle

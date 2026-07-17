@@ -42,9 +42,9 @@ export const ConditionNode = ({ id, data, selected }) => {
           Branch based on comparison.
         </div>
         <div style={{ display: 'flex', gap: '4px' }}>
-          <select 
-            value={operator} 
-            onChange={handleOperatorChange} 
+          <select
+            value={operator}
+            onChange={handleOperatorChange}
             className="node-select"
             style={{ width: '65px', minWidth: 'unset' }}
           >
@@ -54,10 +54,10 @@ export const ConditionNode = ({ id, data, selected }) => {
             <option value="<">&lt;</option>
             <option value="contains">contains</option>
           </select>
-          <input 
-            type="text" 
-            value={value} 
-            onChange={handleValueChange} 
+          <input
+            type="text"
+            value={value}
+            onChange={handleValueChange}
             placeholder="Value"
             className="node-input"
             style={{ flexGrow: 1 }}

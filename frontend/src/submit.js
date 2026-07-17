@@ -6,7 +6,7 @@ import { CheckCircle2, AlertTriangle, X, Play, Loader2 } from 'lucide-react';
 export const SubmitButton = () => {
   const nodes = useStore((state) => state.nodes);
   const edges = useStore((state) => state.edges);
-  
+
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -35,11 +35,11 @@ export const SubmitButton = () => {
         },
         body: JSON.stringify({ nodes: mappedNodes, edges: mappedEdges }),
       });
-      
+
       if (!res.ok) {
         throw new Error(`Server responded with ${res.status}`);
       }
-      
+
       const data = await res.json();
       setResponse(data);
       setShowModal(true);
@@ -55,8 +55,8 @@ export const SubmitButton = () => {
     <>
       {/* Submit Button Footer Bar */}
       <div style={{
-        display: 'flex', 
-        alignItems: 'center', 
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         padding: '12px 0',
         backgroundColor: '#ffffff',
@@ -66,7 +66,7 @@ export const SubmitButton = () => {
         boxSizing: 'border-box',
         position: 'relative'
       }}>
-        <button 
+        <button
           onClick={handleSubmit}
           disabled={loading}
           style={{
@@ -132,7 +132,7 @@ export const SubmitButton = () => {
             animation: 'scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
           }}>
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setShowModal(false)}
               style={{
                 position: 'absolute',
@@ -160,10 +160,10 @@ export const SubmitButton = () => {
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', color: 'var(--colors-error)' }}>
                   <AlertTriangle size={22} />
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: '18px', 
-                    fontWeight: 400, 
+                  <h3 style={{
+                    margin: 0,
+                    fontSize: '18px',
+                    fontWeight: 400,
                     fontFamily: "'EB Garamond', serif",
                     letterSpacing: '-0.3px'
                   }}>
@@ -173,7 +173,7 @@ export const SubmitButton = () => {
                 <p style={{ fontSize: '13px', color: 'var(--colors-body)', lineHeight: '1.5', marginBottom: '24px' }}>
                   {error}. Please verify the FastAPI server is running at `http://localhost:8000`.
                 </p>
-                <button 
+                <button
                   onClick={() => setShowModal(false)}
                   style={{
                     width: '100%',
@@ -194,10 +194,10 @@ export const SubmitButton = () => {
               // Success Layout
               <div>
                 <div style={{ marginBottom: '20px' }}>
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: '20px', 
-                    fontWeight: 400, 
+                  <h3 style={{
+                    margin: 0,
+                    fontSize: '20px',
+                    fontWeight: 400,
                     fontFamily: "'EB Garamond', serif",
                     letterSpacing: '-0.4px',
                     color: 'var(--colors-ink)'
@@ -253,23 +253,23 @@ export const SubmitButton = () => {
                     <AlertTriangle size={20} color="var(--colors-error)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   )}
                   <div>
-                    <h4 style={{ 
-                      margin: 0, 
-                      fontSize: '13px', 
-                      fontWeight: 600, 
-                      color: response?.is_dag ? 'var(--colors-success)' : 'var(--colors-error)' 
+                    <h4 style={{
+                      margin: 0,
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      color: response?.is_dag ? 'var(--colors-success)' : 'var(--colors-error)'
                     }}>
                       {response?.is_dag ? 'Directed Acyclic Graph (DAG)' : 'Contains Loop Cycles'}
                     </h4>
                     <p style={{ margin: '4px 0 0 0', fontSize: '11px', color: 'var(--colors-muted)', lineHeight: '1.45' }}>
-                      {response?.is_dag 
-                        ? 'No cycle loops detected. Ready to execute.' 
+                      {response?.is_dag
+                        ? 'No cycle loops detected. Ready to execute.'
                         : 'Loops detected. Cyclic workflows cannot be scheduled.'}
                     </p>
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={() => setShowModal(false)}
                   style={{
                     width: '100%',

@@ -1,22 +1,22 @@
 // toolbar.js
 import { DraggableNode } from './draggableNode';
-import { 
-  Download, 
-  Sparkles, 
-  Upload, 
-  FileText, 
-  Clock, 
-  ClipboardList, 
-  Database, 
-  Split, 
-  Code 
+import {
+  Download,
+  Sparkles,
+  Upload,
+  FileText,
+  Clock,
+  ClipboardList,
+  Database,
+  Split,
+  Code
 } from 'lucide-react';
 
 export const PipelineToolbar = () => {
   return (
-    <div style={{ 
-      padding: '18px 24px', 
-      backgroundColor: '#ffffff', 
+    <div style={{
+      padding: '18px 24px',
+      backgroundColor: '#ffffff',
       borderBottom: '1px solid var(--colors-hairline)',
       display: 'flex',
       flexDirection: 'column',
@@ -26,9 +26,9 @@ export const PipelineToolbar = () => {
       boxShadow: '0 1px 3px rgba(0,0,0,0.01)'
     }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-        <h1 style={{ 
-          fontSize: '24px', 
-          fontWeight: 300, 
+        <h1 style={{
+          fontSize: '24px',
+          fontWeight: 300,
           color: 'var(--colors-ink)',
           margin: 0,
           fontFamily: "'EB Garamond', 'Times New Roman', serif",
@@ -36,9 +36,9 @@ export const PipelineToolbar = () => {
         }}>
           VectorShift Pipeline Editor
         </h1>
-        <span style={{ 
-          fontSize: '12px', 
-          color: 'var(--colors-muted)', 
+        <span style={{
+          fontSize: '12px',
+          color: 'var(--colors-muted)',
           fontFamily: "'Inter', sans-serif",
           letterSpacing: '0.15px'
         }}>

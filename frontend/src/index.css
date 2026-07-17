@@ -7,25 +7,25 @@
   --colors-canvas-soft: #fafafa;
   --colors-surface-card: #ffffff;
   --colors-surface-strong: #f0efed;
-  
+
   --colors-hairline: #e7e5e4;
   --colors-hairline-soft: #f0efed;
   --colors-hairline-strong: #d6d3d1;
-  
+
   --colors-ink: #0c0a09;
   --colors-body: #4e4e4e;
   --colors-body-strong: #292524;
   --colors-muted: #777169;
   --colors-muted-soft: #a8a29e;
   --colors-on-primary: #ffffff;
-  
+
   /* Dynamic Pastel Orbs */
   --colors-grad-mint: #a7e5d3;
   --colors-grad-peach: #f4c5a8;
   --colors-grad-lavender: #c8b8e0;
   --colors-grad-sky: #a8c8e8;
   --colors-grad-rose: #e8b8c4;
-  
+
   /* Semantics */
   --colors-success: #16a34a;
   --colors-error: #dc2626;
@@ -51,38 +51,6 @@ body {
   position: relative;
 }
 
-/* Atmospheric Background Orbs */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  transition: all 1s ease-in-out;
-}
-.orb-1 {
-  width: 400px;
-  height: 400px;
-  background: var(--colors-grad-sky);
-  top: 15%;
-  right: 10%;
-}
-.orb-2 {
-  width: 450px;
-  height: 450px;
-  background: var(--colors-grad-peach);
-  bottom: 10%;
-  left: 5%;
-}
-.orb-3 {
-  width: 350px;
-  height: 350px;
-  background: var(--colors-grad-mint);
-  top: 45%;
-  left: 40%;
-}
-
 /* Form Inputs & Elements inside Nodes */
 .node-label {
   display: flex;
@@ -99,7 +67,8 @@ body {
   width: 100%;
   background-color: var(--colors-surface-card);
   border: 1px solid var(--colors-hairline-strong);
-  border-radius: 8px; /* rounded.md */
+  border-radius: 8px;
+  /* rounded.md */
   color: var(--colors-ink);
   font-size: 12px;
   padding: 8px 12px;
@@ -156,6 +125,7 @@ body {
   from {
     stroke-dashoffset: 10;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -186,7 +156,8 @@ body {
 .react-flow__controls {
   background: var(--colors-surface-card) !important;
   border: 1px solid var(--colors-hairline) !important;
-  border-radius: 9999px !important; /* rounded.pill */
+  border-radius: 9999px !important;
+  /* rounded.pill */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
   overflow: hidden;
   padding: 4px !important;
@@ -216,7 +187,8 @@ body {
 .react-flow__minimap {
   background: var(--colors-surface-card) !important;
   border: 1px solid var(--colors-hairline) !important;
-  border-radius: 16px !important; /* rounded.xl */
+  border-radius: 16px !important;
+  /* rounded.xl */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
 }
 
@@ -231,7 +203,8 @@ body {
   background-color: var(--colors-surface-card) !important;
   border: 1px solid var(--colors-hairline) !important;
   box-shadow: none !important;
-  border-radius: 9999px !important; /* rounded.pill */
+  border-radius: 9999px !important;
+  /* rounded.pill */
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
